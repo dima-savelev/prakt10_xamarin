@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:app10"
+             x:Class="app10.Page2">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#FF4081"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+                <Setter Property="CornerRadius" Value="15"></Setter>
+                <Setter Property="Margin" Value="10,0,10,0"></Setter>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Style.Triggers>
+                    <EventTrigger Event="DateSelected">
+                        <local:DataPickerValidation/>
+                    </EventTrigger>
+                </Style.Triggers>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <TableView>
+        <TableRoot>
+            <TableSection Title="Персональные данные">
+                <EntryCell x:Name="fio" Label="Фамилия" Placeholder="Введите фамилию"></EntryCell>
+                <EntryCell x:Name="name" Label="Имя" Placeholder="Введите имя"></EntryCell>
+                <EntryCell x:Name="lastName" Label="Отчество" Placeholder="Введите отчество"></EntryCell>
+                <ViewCell>
+                    <DatePicker x:Name="dateBirth" Margin="0,0,0,0" DateSelected="dateBirth_DateSelected"></DatePicker>
+                </ViewCell>
+                <TextCell x:Name="ageText" Text="Возраст - 0"></TextCell>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+                        <Label Text="Пол" VerticalOptions="Center" Margin="5,0,10,0"></Label>
+                        <Picker Title="Выберите пол" x:Name="gender">
+                            <Picker.Items>
+                                <x:String>Мужской</x:String>
+                                <x:String>Женский</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Необходимо ли общежитие">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+                        <Picker Title="Выберите вариант" x:Name="hostel">
+                            <Picker.Items>
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Является старостой">
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal" Margin="15,0,15,0">
+                        <Picker Title="Выберите вариант" x:Name="headman">
+                            <Picker.Items>
+                                <x:String>Да</x:String>
+                                <x:String>Нет</x:String>
+                            </Picker.Items>
+                        </Picker>
+                    </StackLayout>
+                </ViewCell>
+            </TableSection>
+            <TableSection Title="Фото">
+                <ImageCell x:Name="image"></ImageCell>
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Добавить фото" Clicked="addPhoto_Clicked"></Button>
+                </ViewCell>
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Сохранить данные" Clicked="Save_Clicked"></Button>
+                </ViewCell>
+            </TableSection>
+            <TableSection>
+                <ViewCell>
+                    <Button Text="Вывести сохраненные данные" Clicked="Open_Clicked"></Button>
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>

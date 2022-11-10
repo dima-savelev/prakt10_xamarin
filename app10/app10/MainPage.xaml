@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:app10"
+            x:Class="app10.MainPage">
+
+    <TabbedPage.Children>
+        <local:Page1 Title="Первый способ" IconImageSource="sketchbook.png"/>
+        <local:Page2 Title="Второй способ" IconImageSource="studying.png"/>
+    </TabbedPage.Children>
+
+</TabbedPage>
